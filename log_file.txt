@@ -1,0 +1,24 @@
+ day la log cua python file 
+thoi gian thu hien la 0.000126 voi N = 125 
+ thoi gian thu hien la 0.022354 voi N = 47524 
+ thoi gian thu hien la 0.008986 voi N = 23454 
+ thoi gian thu hien la 0.001611 voi N = 5547 
+  day la log cua python file 
+thoi gian thu hien la 0.000056 voi N = 1 
+  day la log cua python file 
+thoi gian thu hien la 0.000063 voi N = 12 
+ thoi gian thu hien la 0.000036 voi N = 25 
+ thoi gian thu hien la 0.000031 voi N = 13 
+  day la log cua python file 
+thoi gian thu hien la 0.000025 voi N = 12 
+ thoi gian thu hien la 0.000009 voi N = 23 
+ thoi gian thu hien la 0.000010 voi N = 35 
+  day la log cua python file 
+thoi gian thu hien la 0.000066 voi N = 12 
+ thoi gian thu hien la 0.000023 voi N = 25 
+ thoi gian thu hien la 0.000023 voi N = 36 
+  day la log cua python file 
+thoi gian thu hien la 0.000065 voi N = 12 
+ thoi gian thu hien la 0.000037 voi N = 58 
+ thoi gian thu hien la 0.000033 voi N = 67 
+ 
