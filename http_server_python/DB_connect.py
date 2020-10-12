@@ -6,7 +6,7 @@
 # read ban ghi 
 # delete ban ghi 
 
-import pyodbc 
+import pyodbc
 # Some other example server values are
 # server = 'localhost\sqlexpress' # for a named instance
 server = 'localhost,1433' # to specify an alternate port

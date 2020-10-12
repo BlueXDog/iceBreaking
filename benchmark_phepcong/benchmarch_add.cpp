@@ -41,36 +41,46 @@ void fibonaci_generation(int N)
 int main ()
 {
     //printf("hello this is vinh");
-    
+    int max_rand, min_rand;
     int count;
+    double time_tinhtong, time_nhieupheptinh,time_fibonaci;
     printf(" nhap so luong so N can test : ");
     scanf("%d", &count);
+    printf("nhap gioi han tren :");
+    scanf("%d", &max_rand);
+    printf("nhap gioi han duoi :");
+    scanf("%d",&min_rand);
     for (int i=0 ;i<count; i++)
 
-    {   
+    { 
+        int randNum =min_rand+rand() %(max_rand-min_rand+1);
+
         int total =0;
-        int N;
-        printf("\n nhap so N:");
-        scanf("%d", &N);
-        getchar();
+        
         clock_t time_start=clock();
-        total =tinhtong(N);
+        total =tinhtong(randNum);
         printf("tong day so la %d \n",total);
-        printf("Time taken: %.5fs\n", (double)(clock() - time_start)/CLOCKS_PER_SEC);
+        time_tinhtong+=(double)(clock() - time_start)/CLOCKS_PER_SEC;
+        printf("Time taken: %.5fs\n", time_tinhtong);
         
 
         float result=0;
         time_start=clock();
-        result =nhieuPhepToan(N);
+        result =nhieuPhepToan(randNum);
         printf("ket qua thuc hien nhieu phep toan la %f \n",result);
-        printf("Time taken: %.5fs\n", (double)(clock() - time_start)/CLOCKS_PER_SEC);
+        time_nhieupheptinh+=(double)(clock() - time_start)/CLOCKS_PER_SEC;
+        printf("Time taken: %.5fs\n", time_nhieupheptinh);
 
         time_start=clock();
-        printf("day fibonaci nho hon %d \n",N);
-        fibonaci_generation(N);
-        printf("Time taken: %.5fs\n", (double)(clock() - time_start)/CLOCKS_PER_SEC);
+        printf("day fibonaci nho hon %d \n",randNum);
+        fibonaci_generation(randNum);
+        time_fibonaci+=(double)(clock() - time_start)/CLOCKS_PER_SEC;
+        printf("Time taken: %.5fs\n", time_fibonaci);
 
     }  
+    printf("thoi gian tinh tong trung binh: %.5fs \n",time_tinhtong/count);
+    printf("thoi gian thuc hien nhieu phep tinh trung binh :%.5fs\n",time_nhieupheptinh/count);
+    printf("thoi gian thuc hien tao day fibonaci : %.5fs \n",time_fibonaci/count);
     printf("ket thuc chuong trinh"); 
     return 0 ;
 

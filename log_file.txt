@@ -21,4 +21,12 @@ thoi gian thu hien la 0.000066 voi N = 12
 thoi gian thu hien la 0.000065 voi N = 12 
  thoi gian thu hien la 0.000037 voi N = 58 
  thoi gian thu hien la 0.000033 voi N = 67 
- 
+  day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 
+ day la log cua python file 

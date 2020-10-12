@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
+	time "time"
+	"math/rand"
 )
 
 func tinhtong(N int) error {
@@ -42,13 +43,42 @@ func fibonaci_generate(N int) error {
 }
 
 func main() {
+	var randMax,randMin int
+	var counter int
+	var timeTinhTong,timeNHieuPhepTinh,timeFibonaci int64
 	fmt.Println("hello world")
-	start := time.Now()
-	tinhtong(100)
-	elapsed := time.Since(start)
-	fmt.Printf("the running time is  %s\n", elapsed)
+	fmt.Println("nhap so lan thuc hien :")
+	fmt.Scanln(&counter)
+	fmt.Println("nhap gioi han tren so random:")
+	fmt.Scanln(&randMax)
+	fmt.Println("nhap gioi han duoi so random")
+	fmt.Scanln(&randMin)
+	for i:=0 ;i<counter ; i++{
+		randNum:=rand.Intn(randMax-randMin)+randMin
+		
+		start := time.Now()
+		tinhtong(randNum)
+		elapsed :=time.Since(start)
+		timeTinhTong+=int64(elapsed)
+		fmt.Printf("the running time is  %d\n", timeTinhTong)
 
-	nhieupheptinh(10)
-	fibonaci_generate(100)
+		start = time.Now()
+		nhieupheptinh(randNum)
+		elapsed =time.Since(start)
+		timeNHieuPhepTinh+=int64(elapsed)
+		fmt.Printf("the running time is  %d\n", timeNHieuPhepTinh)
+
+		start = time.Now()
+		tinhtong(randNum)
+		elapsed =time.Since(start)
+		timeFibonaci+=int64(elapsed)
+		fmt.Printf("the running time is  %d\n", timeFibonaci)
+	}
+	fmt.Printf("thoi gian thuc hien trung binh tinh tong la %fs\n",float64(timeTinhTong)/(float64(counter)*1000000000.0))
+	fmt.Printf("thoi gian thuc hien trung binh nhieu phep tinh la %fs\n",float64(timeNHieuPhepTinh)/(float64(counter)*1000000000.0))
+	fmt.Printf("thoi gian thuc hien trung binh tao day fibonaci la %fs\n",float64(timeFibonaci)/(float64(counter)*1000000000.0))
+
+	
+
 
 }

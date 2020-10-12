@@ -1,24 +1,31 @@
 const http =require("http");
-const fs=require('fs').promises;
+var fs=require('fs');
+var qs=require('querystring')
+const { dirname } = require("path");
 const host='localhost';
 const port=8080;
 
 const requestListener=function(req,res){
-   console.log(__dirname)
+    if (req.method == 'POST') {
+        var body = '';
 
-    fs.readFile("/home/vinh/Documents/ice_breaking/training-vinh/http_server_nodejs/index.html")
-    .then(contents => {
-        res.setHeader("Content-Type", "text/html");
-        res.writeHead(200);
-        res.end(contents);
-    })
-    .catch(err => {
-        res.writeHead(500);
-        res.end(err);
-        return;
-    });
+        req.on('data', function (data) {
+            body += data;
+
+            // Too much POST data, kill the connection!
+            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+            if (body.length > 1e6)
+                req.connection.destroy();
+        });
+
+        req.on('end', function () {
+            var post = JSON.parse(body);
+            console.log(post);
+            console.log(post.id);
+        });
+        
+    }
 }
-
 
 const server=http.createServer(requestListener);
 server.listen(port,host,function(){

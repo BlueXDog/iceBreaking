@@ -1,4 +1,9 @@
+import java.util.Random;
+import java.util.Scanner;
+
 import javax.swing.plaf.synth.SynthScrollBarUI;
+
+
 
 public class BenchmarchAdd {
 
@@ -7,28 +12,47 @@ public class BenchmarchAdd {
     */
 
    public static void main(String []args) {
-      System.out.println("Hello World"); // prints Hello World
-      
-      
-      long startTime=System.nanoTime();
-      
-      for(int i=0; i< 100; i++){
-         greeting();
-     }
-      double runningTime =System.nanoTime()-startTime;
+      Scanner scanner=new Scanner(System.in);
+      System.out.println("nhap gioi han tren cua day random ");
+      int rand_max=scanner.nextInt();
+      System.out.println("nhap so lan thuc hien :");
+      int run_counter=scanner.nextInt();
+      double runningTimeTinhTong=0;
+      double runningTimeNhieuPhepTinh=0;
+      double runningTimeFibonaci=0;
 
-      double runningTime_second=(double)runningTime/1000000000.0;
-      System.out.println("this is running time:" + runningTime);
-      System.out.println("this is runnign time in second "+ runningTime_second);
+      for( int i=0;i<run_counter;i++){
+         Random rand= new Random(); 
+         int rand_int=rand.nextInt(rand_max);
+         System.out.println(rand_int);
 
-     tinhtong(100);
-     fibonaci_generate(100);
+         double startTime=System.nanoTime();
+         tinhtong(rand_int);
+         double runningTime =System.nanoTime()-startTime;
+         double runningTime_second=(double)runningTime/1000000000.0;
+         runningTimeTinhTong+=runningTime_second;     
+         //System.out.println("this is running time in second "+ runningTime_second);
+         
+         startTime=System.nanoTime();
+         nhieupheptinh(rand_int);
+         runningTime =System.nanoTime()-startTime;
+         runningTime_second=(double)runningTime/1000000000.0;
+         runningTimeNhieuPhepTinh+=runningTime_second;
+         //System.out.println("this is running time in second "+ runningTime_second);
 
+         startTime=System.nanoTime();
+         fibonaci_generate(rand_int);
+         runningTime =System.nanoTime()-startTime;
+         runningTime_second=(double)runningTime/1000000000.0;
+         runningTimeFibonaci+=runningTime_second;       
+         //System.out.println("this is running time in second "+ runningTime_second);
+      }
+
+      System.out.println("\n thoi gian chay trung binh tinh tong "+runningTimeTinhTong/run_counter);
+      System.out.println("thoi gian chay trung binh nhieu phep tinh :"+runningTimeNhieuPhepTinh/run_counter );
+      System.out.println("thoi gian chay trung binh tao day fibonaci :"+runningTimeFibonaci/run_counter);
    }
-   public static void greeting(){
-      System.out.println("this is vinh");
-      return;
-   }
+ 
    public static void tinhtong(int n){
       int tong=0;
       for (int i=0;i<n;i++){
